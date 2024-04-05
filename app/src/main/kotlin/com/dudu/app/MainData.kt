@@ -13,6 +13,7 @@ val mainDataList by lazy {
     mutableListOf(
         MainData(
             "Common Api", """
+            • Hilt：自动依赖注入
             • AppStartup：使用ContentProvider优化启动初始化流程，减轻Application负担
             • SplashScreen启动画面：优化启动白屏问题
             • BaseView：顶层赋值完成Title、ViewBinding、ViewModel初始化
