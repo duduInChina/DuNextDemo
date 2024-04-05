@@ -1,0 +1,15 @@
+# Android specific
+build/
+/local.properties
+*/out/
+*.iml
+.gradle/
+.gradle.kts/
+.idea/
+custom_plugin_repo/
+
+
+# Keystore files
+*.jks
+
+!AndroidManifest.xml

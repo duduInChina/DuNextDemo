@@ -1,0 +1,3 @@
+测试ksp和plugin插件， 当前未使用
+annotation-processors，ksp方式读取项目中注解类
+plugin gpt插件，本地插件，可读取项目已经library的class

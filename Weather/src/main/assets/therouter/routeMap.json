@@ -1,0 +1,16 @@
+[
+  {
+    "path": "http://dudu.com/weather/detail",
+    "className": "com.dudu.weather.ui.weather.WeatherActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://dudu.com/weather",
+    "className": "com.dudu.weather.WeatherMainActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  }
+]

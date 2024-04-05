@@ -1,0 +1,4 @@
+协助模块单独运行的Application
+
+由于Hilt必须Application完成注入操作，而每个功能module不希望加入这个Application
+所以当前使用moudule-run完成相关Application的注册

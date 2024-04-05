@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "com/dudu/data/weather_place.proto";
+
+option java_package = "com.dudu.data.datastore";
+option java_multiple_files = true;
+
+message WeatherPreferences {
+  WeatherPlace place = 1;
+  bool save_place = 2;
+}

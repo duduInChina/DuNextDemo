@@ -1,0 +1,113 @@
+[versions]
+# androidx
+androidGradlePlugin = "8.1.3"
+androidTools = "31.2.0"
+androidxAppCompat = "1.6.1"
+androidxCore = "1.12.0"
+androidMaterial = "1.11.0"
+androidxSwiperefreshlayout = "1.1.0"
+androidxCoreSplashscreen = "1.0.1"
+androidxStartup = "1.1.1"
+androidxFragmentKtx="1.6.2"
+androidxLifecycle="2.5.1"
+androidxDataStore = "1.0.0"
+
+# Test
+junit = "4.13.2"
+androidxTestExt = "1.1.5"
+androidxEspresso = "3.5.1"
+
+# SDK
+kotlin = "1.9.23"
+ksp = "1.9.23-1.0.19"
+kotlinxSerializationJson = "1.5.0"
+protobuf = "3.24.4"
+protobufPlugin = "0.9.4"
+hilt = "2.51"
+theRouter = "1.2.2-rc9"
+okhttp = "5.0.0-alpha.11"
+okhttpprofiler = "1.0.8"
+retrofit = "2.9.0"
+androidx-test-ext-junit = "1.1.5"
+brv = "1.5.8"
+
+[libraries]
+# androidx
+# appcompat中默认引入了很多库，比如activity库、fragment库、core库、annotation库、drawerLayout库、appcompat-resources等
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
+# core包+ktx扩展函数
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+# material材料设计
+android-material = { group = "com.google.android.material", name = "material", version.ref = "androidMaterial" }
+# 下拉刷新
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "androidxSwiperefreshlayout" }
+# 启动画面
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
+# app启动时通过ContentProvider
+androidx-startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
+# fragment+ktx扩展函数
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidxFragmentKtx" }
+# 扩展 viewModelScope 功能，用于在后台线程中发出网络请求。
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+# lifecycle编译处理器
+androidx-lifecycle-compiler = { group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref = "androidxLifecycle" }
+# livedata，asLivedata() 方法,Flow 转换为livedata
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
+# dataStore
+androidx-dataStore-core = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
+
+# Test
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androidxTestExt" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspresso" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+
+# Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+# TheRouter
+therouter = { group = "cn.therouter", name = "router", version.ref = "theRouter" }
+therouter-apt = { group = "cn.therouter", name = "apt", version.ref = "theRouter" }
+
+# Json
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+# protobuf
+protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
+protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
+
+# Http
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+localebro-okhttp-profiler = { group = "com.localebro", name = "okhttpprofiler", version.ref = "okhttpprofiler" }
+
+# BRV
+brv = { group = "com.github.liangjingkanji", name = "BRV", version.ref = "brv" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+therouter = { id = "cn.therouter.agp8", version.ref = "theRouter" }
+
+# 本地项目插件
+dudu-application = { id = "dudu.application", version = "unspecified" }
+dudu-library = { id = "dudu.library", version = "unspecified" }
+dudu-module = { id = "dudu.module.application", version = "unspecified" }
+dudu-module-run = { id = "dudu.module.run", version = "unspecified" }
+dudu-module-feature = { id = "dudu.module.feature", version = "unspecified" }

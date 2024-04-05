@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "com.dudu.data.datastore";
+option java_multiple_files = true;
+
+message WeatherLocation {
+  string lng = 1;
+  string lat = 2;
+}
