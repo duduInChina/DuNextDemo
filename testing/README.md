@@ -1,0 +1,1 @@
+存放test的协助类，插件中使用testImplementation导入不影响正式环境

@@ -1,5 +1,8 @@
 import org.gradle.api.initialization.resolve.RepositoriesMode
 
+include(":testing")
+
+
 pluginManagement {
     // 版本管理
     includeBuild("build-logic")

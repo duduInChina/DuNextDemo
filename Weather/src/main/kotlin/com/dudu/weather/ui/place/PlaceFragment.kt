@@ -121,6 +121,8 @@ class PlaceFragment : BaseFragment() {
                             gotoWeather(effect.place)
                         }
                     }
+
+                    else -> {}
                 }
             }
         }

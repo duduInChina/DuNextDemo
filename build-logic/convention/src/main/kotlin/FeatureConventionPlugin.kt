@@ -27,6 +27,7 @@ class FeatureConventionPlugin : Plugin<Project> {
                 testImplementation(libs.findLibrary("junit").get())
                 androidTestImplementation(libs.findLibrary("androidx.test.ext").get())
                 androidTestImplementation(libs.findLibrary("androidx.test.espresso.core").get())
+                testImplementation(project(":testing"))
             }
         }
 
