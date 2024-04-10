@@ -28,6 +28,9 @@ class FeatureConventionPlugin : Plugin<Project> {
                 androidTestImplementation(libs.findLibrary("androidx.test.ext").get())
                 androidTestImplementation(libs.findLibrary("androidx.test.espresso.core").get())
                 testImplementation(project(":testing"))
+                testImplementation(libs.findLibrary("mockk").get())
+                testImplementation(libs.findLibrary("kotlin.test").get())
+                testImplementation(libs.findLibrary("kotlinx.coroutines.test").get())
             }
         }
 

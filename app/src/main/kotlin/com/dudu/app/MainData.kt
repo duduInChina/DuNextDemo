@@ -20,6 +20,7 @@ val mainDataList by lazy {
             • RootLayout：Activity和Fragment加入根布局，装载标题、加载UI、空布局UI
             • PermissionX：权限判断，在当前Activity加入空布局的Fragment完成判断流程
             • build-logic：注册插件模块，ProjectConfig配置项目，libs管理包版本
+            • Mockk：单元测试mock测试替身
         """.trimIndent()
         ),
 

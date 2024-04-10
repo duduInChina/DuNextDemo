@@ -12,7 +12,7 @@ data class PlaceResponse(val places: MutableList<Place>, val status: String, val
     data class Place(
         val name: String,
         val location: Location,
-        @SerialName("formatted_address") val address: String
+        @SerialName("formatted_address") var address: String
     )
 
     @Serializable

@@ -1,3 +1,5 @@
+import com.dudu.testImplementation
+
 plugins {
     alias(libs.plugins.dudu.module.feature)
     id("kotlin-kapt")

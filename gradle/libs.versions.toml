@@ -16,6 +16,8 @@ androidxDataStore = "1.0.0"
 junit = "4.13.2"
 androidxTestExt = "1.1.5"
 androidxEspresso = "3.5.1"
+mockk = "1.13.10"
+kotlinxCoroutines = "1.7.3"
 
 # SDK
 kotlin = "1.9.23"
@@ -61,6 +63,9 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androidxTestExt" }
 androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspresso" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+mockk = {group = "io.mockk", name = "mockk", version.ref = "mockk"}
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

@@ -7,5 +7,5 @@ android {
 }
 
 dependencies {
-    api(projects.data.weatherData)
+    implementation(projects.data.weatherData)
 }
