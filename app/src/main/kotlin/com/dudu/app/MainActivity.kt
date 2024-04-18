@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
-    override val title = Title(R.string.app_name, false, TitleType.COLL)
+    override val title = Title(R.string.app_name_common, false, TitleType.COLL)
     override val bodyBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }

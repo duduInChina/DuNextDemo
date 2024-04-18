@@ -20,6 +20,7 @@ import org.gradle.kotlin.dsl.PluginDependenciesSpecScope
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.baselineprofile)
 
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.jvm) apply false
@@ -29,4 +30,5 @@ plugins {
     alias(libs.plugins.protobuf) apply false
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.therouter) apply false
+    alias(libs.plugins.androidTest) apply false
 }

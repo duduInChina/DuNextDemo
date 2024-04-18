@@ -61,5 +61,9 @@ gradlePlugin {
             id = "dudu.module.feature"
             implementationClass = "FeatureConventionPlugin"
         }
+        register("benchmark") {
+            id = "dudu.benchmark"
+            implementationClass = "BenchmarkConventionPlugin"
+        }
     }
 }

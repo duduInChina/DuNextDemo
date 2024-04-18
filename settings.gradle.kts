@@ -1,6 +1,9 @@
 import org.gradle.api.initialization.resolve.RepositoriesMode
 
-include(":testing")
+include(":baselineprofile")
+
+
+include(":benchmark")
 
 
 pluginManagement {
@@ -36,6 +39,7 @@ rootProject.name = "DuNextDemo"
 // 可以开启projects引用，https://docs.gradle.org/7.0/release-notes.html
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":testing")
 include(":core:common")
 include(":core:network")
 include(":data:datastore-proto")

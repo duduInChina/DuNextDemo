@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity android:name=".WeatherMainActivity"/>
-        <activity android:name=".ui.weather.WeatherActivity"/>
+        <activity android:name=".WeatherMainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.dudu.WEARTHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.weather.WeatherActivity" />
     </application>
 </manifest>

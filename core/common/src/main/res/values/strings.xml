@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DuNextDemo</string>
+    <string name="app_name_common">DuNextDemo</string>
     <string name="log_tag_name">DuDemo</string>
     <string name="weather_name">天气预报</string>
     <string name="audio_name">音频</string>

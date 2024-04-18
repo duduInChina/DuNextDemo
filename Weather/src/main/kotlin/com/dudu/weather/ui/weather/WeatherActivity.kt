@@ -24,6 +24,7 @@ import com.therouter.router.Route
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
+
 @Route(path = RouterPath.WEATHER_DETAIL)
 @AndroidEntryPoint
 class WeatherActivity : BaseActivity() {
