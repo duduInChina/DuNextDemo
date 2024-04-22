@@ -28,10 +28,10 @@ jobs:
       uses: PGYER/pgyer-upload-app-action@v1.3
       with:
         _api_key: ${{ secrets.PGYER_API_TOKEN }}
-        appFilePath: $OUTPUT_DIR/*.apk
+        appFilePath: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
         name: build
-        path: $OUTPUT_DIR/*.apk
+        path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
