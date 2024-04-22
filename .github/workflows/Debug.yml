@@ -1,0 +1,37 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      OUTPUT_DIR: app/build/outputs/apk/debug
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew assembleDebug
+
+    - name: Upload File to Pgyer
+      uses: PGYER/pgyer-upload-app-action@v1.3
+      with:
+        _api_key: ${{ secrets.PGYER_API_TOKEN }}
+        appFilePath: $OUTPUT_DIR/*.apk
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: build
+        path: $OUTPUT_DIR/*.apk
