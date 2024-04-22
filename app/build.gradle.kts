@@ -12,11 +12,15 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isDebuggable = false
+            // 启用资源收缩，该操作由
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
         // 基准配置文件加入
         create("benchmark") {
@@ -24,6 +28,8 @@ android {
             signingConfig = signingConfigs.getByName("debug")
             matchingFallbacks += listOf("release")
             isDebuggable = false
+            // 用于StartupBenchmarks的执行，Ensure Baseline Profile is fresh for release builds.
+            baselineProfile.automaticGenerationDuringBuild = true
         }
     }
 
