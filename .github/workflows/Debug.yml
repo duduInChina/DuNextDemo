@@ -8,7 +8,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      OUTPUT_DIR: app/build/outputs/apk/debug
     steps:
     - uses: actions/checkout@v3
     - name: set up JDK 17
@@ -22,3 +23,15 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+
+    - name: Upload File to Pgyer
+      uses: PGYER/pgyer-upload-app-action@v1.3
+      with:
+        _api_key: ${{ secrets.PGYER_API_KEY }}
+        appFilePath: $OUTPUT_DIR/*.apk
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: build
+        path: $OUTPUT_DIR/*.apk
