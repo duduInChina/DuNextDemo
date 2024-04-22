@@ -27,7 +27,7 @@ jobs:
     - name: Upload File to Pgyer
       uses: PGYER/pgyer-upload-app-action@v1.3
       with:
-        _api_key: ${{ secrets.PGYER_API_KEY }}
+        _api_key: ${{ secrets.PGYER_API_TOKEN }}
         appFilePath: $OUTPUT_DIR/*.apk
 
     - name: Upload a Build Artifact
