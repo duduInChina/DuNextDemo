@@ -7,6 +7,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    buildTypes {
+        debug {
+            resValue("string", "app_name_common", "DuNextDemoTest")
+        }
+    }
 }
 
 dependencies {

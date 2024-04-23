@@ -21,19 +21,23 @@ object ProjectConfig{
 
     const val applicationId = "com.dudu.demo"
 
+    // debug包,包名后缀
+    const val debugApplicationIdSuffix = ".test"
+
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-    // 密钥文件路径
-    const val storeFile = ""
+    // 下面是测试签名信息，正式签名由Github Secrets保管
+    // 密钥文件名
+    const val storeFile = "debug-keystore.jks"
 
     // 密钥密码
-    const val storePassword = ""
+    const val storePassword = "android"
 
     // 密钥别名
-    const val keyAlias = ""
+    const val keyAlias = "androiddebugkey"
 
     // 别名密码
-    const val keyPassword = ""
+    const val keyPassword = "android"
 
     // 配置某个模块以Application，由于hilt必须Application关系当前以module-run模块执行
     private val moduleToApplication = mapOf(

@@ -1,11 +1,10 @@
 name: Debug Apk
-# 打包debug apk，提交蒲公英
-# main分支，特定字符触发
+# 打正式包 apk，提交蒲公英
+# tags触发
 on:
   push:
-    branches:
-      - main
-      - apk/debug
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -27,16 +26,16 @@ jobs:
         uses: gradle/gradle-build-action@v3
 
       - name: Build with Gradle
-        run: ./gradlew :app:assembleDebug
+        run: ./gradlew :app:assembleRelease
 
       - name: Upload File to Pgyer
         uses: PGYER/pgyer-upload-app-action@v1.3
         with:
           _api_key: ${{ secrets.PGYER_API_TOKEN }}
-          appFilePath: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
+          appFilePath: ${{ github.workspace }}/app/build/outputs/apk/release/app-*.apk
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
           name: build
-          path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
+          path: ${{ github.workspace }}/app/build/outputs/apk/release/app-*.apk

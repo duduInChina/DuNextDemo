@@ -37,7 +37,21 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                     testInstrumentationRunner = ProjectConfig.testInstrumentationRunner
                 }
 
+                signingConfigs {
+                    getByName("debug") {
+                        storeFile = project.rootProject.file(ProjectConfig.storeFile)
+                        storePassword = ProjectConfig.storePassword
+                        keyAlias = ProjectConfig.keyAlias
+                        keyPassword = ProjectConfig.keyPassword
+                    }
+                }
 
+                buildTypes {
+                    debug {
+                        applicationIdSuffix = ProjectConfig.debugApplicationIdSuffix
+                        signingConfig = signingConfigs.getByName("debug")
+                    }
+                }
 
                 compileOptions {
                     sourceCompatibility = JavaVersion.VERSION_1_8
