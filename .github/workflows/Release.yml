@@ -25,6 +25,13 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
 
+      # baseline基线配置文件生成环境
+      - name: Install GMD image for baseline profile generation
+        run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "system-images;android-33;aosp_atd;x86_64"
+
+      - name: Accept Android licenses
+        run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Build with Gradle
         run: ./gradlew :app:assembleRelease
 
