@@ -28,14 +28,29 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew :app:assembleRelease
 
+      # 正式包签名
+      - name: Sign app APK
+        uses: r0adkll/sign-android-release@v1
+        # ID used to access action output
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          # override default build-tools version (33.0.0) -- optional
+          BUILD_TOOLS_VERSION: "34.0.0"
+
       - name: Upload File to Pgyer
         uses: PGYER/pgyer-upload-app-action@v1.3
         with:
           _api_key: ${{ secrets.PGYER_API_TOKEN }}
-          appFilePath: ${{ github.workspace }}/app/build/outputs/apk/release/app-*.apk
+          appFilePath: ${{steps.sign_app.outputs.signedReleaseFile}}
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
           name: build
-          path: ${{ github.workspace }}/app/build/outputs/apk/release/app-*.apk
+          path: ${{steps.sign_app.outputs.signedReleaseFile}}
