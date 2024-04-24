@@ -29,21 +29,21 @@ android {
     targetProjectPath = ":app"
 
     // 在该设备下生成配置，注释后，在连接的设备上生成，该配置更方便CI操作
-//    testOptions.managedDevices.devices {
-//        create<ManagedVirtualDevice>("pixel6Api34") {
-//            device = "Pixel 6"
-//            apiLevel = 34
-//            systemImageSource = "google"
-//        }
-//    }
+    testOptions.managedDevices.devices {
+        create<ManagedVirtualDevice>("pixel6Api34") {
+            device = "Pixel 6"
+            apiLevel = 34
+            systemImageSource = "google"
+        }
+    }
 }
 
 // This is the configuration block for the Baseline Profile plugin.
 // You can specify to run the generators on a managed devices or connected devices.
-//baselineProfile {
-//    managedDevices += "pixel6Api34"
-//    useConnectedDevices = false
-//}
+baselineProfile {
+    managedDevices += "pixel6Api34"
+    useConnectedDevices = false
+}
 
 dependencies {
     implementation(libs.androidx.test.ext.junit)

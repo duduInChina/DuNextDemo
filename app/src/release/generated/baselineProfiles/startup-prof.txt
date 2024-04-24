@@ -1337,7 +1337,7 @@ HSPLandroidx/emoji2/text/EmojiCompatInitializer$LoadEmojiCompatRunnable;->run()V
 Landroidx/emoji2/text/EmojiMetadata;
 HSPLandroidx/emoji2/text/EmojiMetadata;-><clinit>()V
 HPLandroidx/emoji2/text/EmojiMetadata;-><init>(Landroidx/emoji2/text/MetadataRepo;I)V
-HSPLandroidx/emoji2/text/EmojiMetadata;->getCodepointAt(I)I
+HPLandroidx/emoji2/text/EmojiMetadata;->getCodepointAt(I)I
 HSPLandroidx/emoji2/text/EmojiMetadata;->getCodepointsLength()I
 HSPLandroidx/emoji2/text/EmojiMetadata;->getId()I
 HPLandroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
