@@ -14,7 +14,8 @@
 - build-logic：注册插件模块，ProjectConfig配置项目，libs管理包版本
 - Mockk：单元测试mock测试替身
 - Macrobenchmark：基准化分析模块
-- BaselineProfile: 生成基准配置文件、启动配置文件模块（需版本：Android Studio Iguana），热点代码加入AOT提升启动速度
+- BaselineProfile：生成基准配置文件、启动配置文件模块（需版本：Android Studio Iguana），热点代码加入AOT提升启动速度
+- Github Actions：完成CI/CD处理，提交分支代码，触发所有单元测试，lint报告，打包apk，提交蒲公英
 
 <img src="./images/common.gif" alt="weather" style="zoom:67%;" /> 
 

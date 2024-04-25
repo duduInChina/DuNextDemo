@@ -1,5 +1,5 @@
 name: Debug Apk
-# 打正式包 apk，提交蒲公英
+# 打正式包 apk，正式签名，提交蒲公英
 # tags触发
 on:
   push:
