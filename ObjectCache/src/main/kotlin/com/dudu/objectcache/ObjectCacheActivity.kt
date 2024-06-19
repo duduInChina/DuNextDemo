@@ -15,7 +15,7 @@ class ObjectCacheActivity : BaseActivity() {
     }
     override val title = Title(com.dudu.common.R.string.object_cache)
 
-    var tag = 0
+    private var tag = 0
 
     override fun initView() {
 

@@ -14,5 +14,9 @@ class RouterPath {
         const val VIDEO = "http://dudu.com/video"
         const val AUDIO = "http://dudu.com/audio"
         const val OBJECT_CACHE = "http://dudu.com/object/cache"
+        const val VIEWMODEL_TEST = "http://dudu.com/viewmodel/test"
+        const val VIEWMODEL_TEST_FIRST = "http://dudu.com/viewmodel/test/first"
+        const val VIEWMODEL_TEST_SECOND = "http://dudu.com/viewmodel/test/second"
+        const val VIEWMODEL_TEST_FRAGMENT = "http://dudu.com/viewmodel/test/fragment"
     }
 }

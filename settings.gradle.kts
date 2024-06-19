@@ -2,9 +2,7 @@ import org.gradle.api.initialization.resolve.RepositoriesMode
 
 include(":baselineprofile")
 
-
 include(":benchmark")
-
 
 pluginManagement {
     // 版本管理
@@ -50,5 +48,6 @@ include(":module-run")
 
 include(":Weather")
 include(":ObjectCache")
+include(":ViewModelTest")
 
 

@@ -25,7 +25,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- *
+ * 基准配置文件
+ * 启动优化
  */
 class ProfileVerifierLogger @Inject constructor() {
     companion object {

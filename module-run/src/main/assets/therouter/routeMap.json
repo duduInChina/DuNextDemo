@@ -14,6 +14,34 @@
     "params": {}
   },
   {
+    "path": "http://dudu.com/viewmodel/test",
+    "className": "com.dudu.viewmodeltest.ViewModelTestActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://dudu.com/viewmodel/test/second",
+    "className": "com.dudu.viewmodeltest.ViewModelSecondActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://dudu.com/viewmodel/test/fragment",
+    "className": "com.dudu.viewmodeltest.ViewModelFragmentActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://dudu.com/viewmodel/test/first",
+    "className": "com.dudu.viewmodeltest.ViewModelFirstActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
     "path": "http://dudu.com/object/cache",
     "className": "com.dudu.objectcache.ObjectCacheActivity",
     "action": "",

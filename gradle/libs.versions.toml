@@ -36,6 +36,8 @@ retrofit = "2.9.0"
 androidx-test-ext-junit = "1.1.5"
 brv = "1.5.8"
 profileinstaller = "1.3.1"
+logger = "master-SNAPSHOT"
+xlog = "1.2.5"
 
 [libraries]
 # androidx
@@ -110,6 +112,13 @@ localebro-okhttp-profiler = { group = "com.localebro", name = "okhttpprofiler", 
 
 # BRV
 brv = { group = "com.github.liangjingkanji", name = "BRV", version.ref = "brv" }
+
+# Log
+# logger 上面官方版本还未适配AndroidX包含旧包，编译警告异常，当前使用下面映射修改版本，主要作用输出日志格式
+logger = { group = "com.github.orhanobut", name = "logger", version.ref = "logger" }
+# 日志，mmap内存映射文件（高性能，防丢失），内容加密压缩，分片，主要作用埋点日志，写入到文件，提交上传
+xlog = { group = "com.tencent.mars", name = "mars-xlog", version.ref = "xlog" }
+
 
 
 [plugins]

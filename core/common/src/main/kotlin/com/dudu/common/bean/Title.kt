@@ -10,7 +10,7 @@ data class Title(
     var text: String = "",
 ) {
     init {
-        if (id != 0) getResString(id)?.let { text = it }
+        if (id != 0) getResString(id).let { text = it }
     }
 }
 

@@ -12,4 +12,5 @@
     <string name="tinker_name">TinkerDemo</string>
     <string name="alisophix_name">阿里热修复</string>
     <string name="object_cache">对象缓存</string>
+    <string name="viewmodel_test">ViewModel测验</string>
 </resources>
