@@ -2,6 +2,8 @@ package com.dudu.common.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
+import com.dudu.common.log.LogManager
+import com.dudu.common.log.XCrashLogManager
 import com.dudu.common.util.applicationContext
 
 /**
@@ -13,6 +15,9 @@ class CommonInitializer : Initializer<Unit> {
             applicationContext = context
         }
 
+        // 初始化log
+        LogManager.initLog()
+        XCrashLogManager.initXCrash()
     }
 
     override fun dependencies() = emptyList<Class<Initializer<*>>>()

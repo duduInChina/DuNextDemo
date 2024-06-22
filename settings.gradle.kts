@@ -49,5 +49,6 @@ include(":module-run")
 include(":Weather")
 include(":ObjectCache")
 include(":ViewModelTest")
+include(":Log")
 
 

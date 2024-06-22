@@ -28,4 +28,5 @@ dependencies {
     api(libs.android.material)
     api(libs.logger)
     api(libs.xlog)
+    api(libs.xcrash)
 }

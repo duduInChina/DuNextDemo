@@ -58,12 +58,13 @@ object ProjectConfig{
     }
 
     // 运行的模块, 适配moduleInfo获取信息
-    const val moduleRun = "ViewModelTest"
+    const val moduleRun = "Log"
 
     val moduleInfo = mapOf(
         "Weather" to ModuleData("Weather", "天气预报", "http://dudu.com/weather"),
         "ObjectCache" to ModuleData("ObjectCache", "对象缓存", "http://dudu.com/object/cache"),
         "ViewModelTest" to ModuleData("ViewModelTest", "ViewModel测验", "http://dudu.com/viewmodel/test"),
+        "Log" to ModuleData("Log", "Log", "http://dudu.com/log"),
     )
 
 }

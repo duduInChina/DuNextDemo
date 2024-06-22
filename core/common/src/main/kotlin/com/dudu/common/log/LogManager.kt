@@ -20,9 +20,17 @@ import com.tencent.mars.xlog.Xlog
 object LogManager {
 
     /**
-     * logger默认输出的Tag name
+     * 默认log加载器（做到快速切换）
      */
-    private val defaultTag by lazy {
+    val logLoader: ILogLoader by lazy {
+        CommonLogLoader()
+    }
+
+    /**
+     * logger默认输出的Tag name
+     * 如果输出的log存在tag，会和该字段进行拼接 DuDemo-`tag`
+     */
+    val defaultTag by lazy {
         getResString(com.dudu.common.R.string.log_tag_name)
     }
 
