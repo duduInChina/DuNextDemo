@@ -1,5 +1,11 @@
 import org.gradle.api.initialization.resolve.RepositoriesMode
 
+include(":UsbSerial")
+
+
+include(":database")
+
+
 include(":baselineprofile")
 
 include(":benchmark")

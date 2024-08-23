@@ -41,4 +41,5 @@ dependencies {
     // 基准配置文件加入
     baselineProfile(projects.baselineprofile)
     implementation(libs.kotlinx.coroutines.guava)
+    implementation(projects.usbSerial)
 }

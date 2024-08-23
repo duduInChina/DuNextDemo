@@ -8,6 +8,13 @@
     <!-- 拥有sd卡读写权 Google Play 对该权限有限制策略  -->
     <!--    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage"-->
 
+    <queries>
+        <!--   TTS   -->
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
     <application>
         <provider
             android:name="androidx.startup.InitializationProvider"

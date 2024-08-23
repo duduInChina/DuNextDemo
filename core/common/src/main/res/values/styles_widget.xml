@@ -74,5 +74,13 @@
         <item name="android:layout_marginTop">1dp</item>
     </style>
 
+    <!-- BottomSheetDialog 背景透明，不显示statusBar-->
+    <style name="defaultBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/defaultBottomSheetStyle</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="defaultBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/transparency</item>
+    </style>
 
 </resources>

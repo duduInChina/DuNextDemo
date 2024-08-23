@@ -12,4 +12,6 @@
     <dimen name="text_medium">18sp</dimen>
     <dimen name="text_small">14sp</dimen>
 
+    <!-- ShadowButton-->
+    <dimen name="default_shadow_button_radius">2dp</dimen>
 </resources>
