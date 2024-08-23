@@ -81,21 +81,24 @@ object LogManager {
      */
     private fun initXLog(){
         // 引入mmap Native包
-        System.loadLibrary("c++_shared")
-        System.loadLibrary("marsxlog")
+        try {
+            System.loadLibrary("c++_shared")
+            System.loadLibrary("marsxlog")
 
-        val xLog = Xlog()
-        Log.setLogImp(xLog)
-        Log.setConsoleLogOpen(false)// 暂不使用xLog输出日志
-        Log.appenderOpen(
-            if(getCommonDebug()) Xlog.LEVEL_DEBUG else Xlog.LEVEL_INFO,
-            Xlog.AppednerModeAsync, // 异步写入文件
-            XLogCacheDir,// mmap缓存路径
-            XLogDir,// 实际保存目录
-            XLOG_FIX,
-            0// 缓存保留时间
-        )
-
+            val xLog = Xlog()
+            Log.setLogImp(xLog)
+            Log.setConsoleLogOpen(false)// 暂不使用xLog输出日志
+            Log.appenderOpen(
+                if(getCommonDebug()) Xlog.LEVEL_DEBUG else Xlog.LEVEL_INFO,
+                Xlog.AppednerModeAsync, // 异步写入文件
+                XLogCacheDir,// mmap缓存路径
+                XLogDir,// 实际保存目录
+                XLOG_FIX,
+                0// 缓存保留时间
+            )
+        }catch (e:UnsatisfiedLinkError){
+            e.printStackTrace()
+        }
     }
 
 }

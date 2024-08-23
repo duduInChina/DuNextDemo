@@ -32,7 +32,6 @@ android {
             baselineProfile.automaticGenerationDuringBuild = true
         }
     }
-
 }
 dependencies {
     implementation(libs.androidx.core.splashscreen)
