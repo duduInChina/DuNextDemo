@@ -14,5 +14,26 @@
         <attr name="mlv_loading_view_size" format="dimension" />
     </declare-styleable>
 
-
+    <!-- ShadowButton -->
+    <declare-styleable name="ShadowButton">
+        <!--触摸时的颜色， 默认#9C000000-->
+        <attr name="sb_color_pressed" format="color" />
+        <!--未触摸/触摸层的颜色， 默认Color.TRANSPARENT-->
+        <attr name="sb_color_unpressed" format="color" />
+        <!--波纹的颜色，默认#FFEEEEEE-->
+        <attr name="sb_ripple_color" format="color" />
+        <!--波纹的透明度， 默认47-->
+        <attr name="sb_ripple_alpha" format="integer" />
+        <!--触摸时的透明度， 默认48-->
+        <attr name="sb_alpha_pressed" format="integer" />
+        <!--波纹持续的时间， 默认1000ms-->
+        <attr name="sb_ripple_duration" format="integer" />
+        <!--按钮角的弧度， 默认2dp-->
+        <attr name="sb_radius" format="dimension" />
+        <!--按钮的形状， 默认rectangle-->
+        <attr name="sb_shape_type" format="enum">
+            <enum name="round" value="0" />
+            <enum name="rectangle" value="1" />
+        </attr>
+    </declare-styleable>
 </resources>

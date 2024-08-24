@@ -1,5 +1,11 @@
 import org.gradle.api.initialization.resolve.RepositoriesMode
 
+include(":UsbSerial")
+
+
+include(":database")
+
+
 include(":baselineprofile")
 
 include(":benchmark")
@@ -8,25 +14,27 @@ pluginManagement {
     // 版本管理
     includeBuild("build-logic")
     repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
         // 本地制作的插件
         maven { url = uri("./custom_plugin_repo") }
         maven { setUrl("https://maven.aliyun.com/repository/public") }
         maven { setUrl("https://maven.aliyun.com/nexus/content/repositories/releases") }
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+
     }
 }
 dependencyResolutionManagement {
     // 被 @Incubating 标记，仍再孵化开发阶段
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()
-        mavenCentral()
-        // JCenter Maven 仓库在2021年5月1日后不再接收任何新的库版本、更新或修复补丁。
-        maven { setUrl("https://jitpack.io") }
         maven { setUrl("https://maven.aliyun.com/repository/public") }
         maven { setUrl("https://maven.aliyun.com/nexus/content/repositories/releases") }
+        google()
+        mavenCentral()
+         // JCenter Maven 仓库在2021年5月1日后不再接收任何新的库版本、更新或修复补丁。
+        maven { setUrl("https://jitpack.io") }
+
     }
 }
 //include(":core:annotation")

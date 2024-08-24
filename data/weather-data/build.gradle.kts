@@ -19,5 +19,6 @@ android {
 dependencies {
     api(projects.data.datastore)
     api(projects.core.network)
+    api(projects.database)
 }
 

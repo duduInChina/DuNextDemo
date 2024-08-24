@@ -45,6 +45,9 @@ object ProjectConfig{
     // 实际保存目录
     const val xLogDirName = "xlog"
 
+    // 数据库名称
+    const val databaseName = "pe-database"
+
     // 配置某个模块以Application，由于hilt必须Application关系当前以module-run模块执行
     private val moduleToApplication = mapOf(
         "Weather" to false

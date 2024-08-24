@@ -32,5 +32,10 @@ object DensityUtils {
      */
     fun getScreenHeightPixels() = Resources.getSystem().displayMetrics.heightPixels
 
+    /**
+     * 屏幕宽度px
+     */
+    fun getScreenWidthPixels() = Resources.getSystem().displayMetrics.widthPixels
+
 
 }

@@ -16,4 +16,7 @@
     <!-- 主题背景点击时的颜色   -->
     <color name="clickColorPrimary">#4DDADADA</color>
 
+    <!-- ShadowButton -->
+    <color name="default_shadow_button_color_pressed">#9C000000</color>
+    <color name="default_shadow_button_ripple_color">#FFEEEEEE</color>
 </resources>
