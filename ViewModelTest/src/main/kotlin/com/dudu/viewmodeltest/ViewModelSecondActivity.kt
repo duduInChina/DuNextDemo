@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import com.dudu.common.base.activity.BaseActivity
 import com.dudu.common.bean.Title
 import com.dudu.common.ext.launchAndRepeatWithViewLifecycle
+import com.dudu.common.ext.logD
 import com.dudu.common.router.RouterPath
 import com.dudu.viewmodeltest.databinding.ActivityViewmodelDataviewBinding
 import com.therouter.router.Route
@@ -23,14 +24,14 @@ class ViewModelSecondActivity : BaseActivity() {
         bodyBinding.test.setOnClickListener {
             viewModel.setData("test")
         }
-        Log.d("viewmodeltest", viewModel.toString())
+        viewModel.toString().logD(TAG)
     }
 
     override fun initFlow() {
         launchAndRepeatWithViewLifecycle {
             viewModel.testString.observe(this@ViewModelSecondActivity){
                 bodyBinding.tvData.text = it
-                Log.d("viewmodeltest", "第二获取数据${it}")
+                "第二获取数据${it}".logD(TAG)
             }
         }
     }

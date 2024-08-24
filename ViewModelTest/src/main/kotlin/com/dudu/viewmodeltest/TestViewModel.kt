@@ -6,6 +6,8 @@ import com.dudu.common.base.viewmodel.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+const val TAG = "viewmodeltest"
+
 @HiltViewModel
 class TestViewModel @Inject constructor() : BaseViewModel() {
 

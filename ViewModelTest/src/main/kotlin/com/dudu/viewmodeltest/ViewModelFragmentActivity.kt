@@ -7,6 +7,7 @@ import com.dudu.common.base.activity.BaseActivity
 import com.dudu.common.base.viewmodel.BaseViewModel
 import com.dudu.common.bean.Title
 import com.dudu.common.ext.launchAndRepeatWithViewLifecycle
+import com.dudu.common.ext.logD
 import com.dudu.common.router.RouterPath
 import com.dudu.viewmodeltest.databinding.ActivityViewmodelFragmentBinding
 import com.therouter.router.Route
@@ -25,14 +26,14 @@ class ViewModelFragmentActivity: BaseActivity() {
     override val viewModel: TestViewModel by viewModels()
 
     override fun initView() {
-        Log.d("viewmodeltest", viewModel.toString())
+        viewModel.toString().logD(TAG)
     }
 
     override fun initFlow() {
         launchAndRepeatWithViewLifecycle {
             viewModel.testString.observe(this@ViewModelFragmentActivity){
                 bodyBinding.tvData.text = it
-                Log.d("viewmodeltest", "Activity获取数据${it}")
+                "Activity获取数据${it}".logD(TAG)
             }
         }
     }

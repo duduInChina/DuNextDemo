@@ -25,4 +25,4 @@ fun <T> List<T>.log(tag: String? = null) = LogManager.logLoader.obj(tag, this)
 
 fun Cursor.log(tag: String? = null) = LogManager.logLoader.obj(tag, this)
 
-fun Any.log(tag: String? = null) = LogManager.logLoader.obj(tag, this)
+fun Any.logO(tag: String? = null) = LogManager.logLoader.obj(tag, this)

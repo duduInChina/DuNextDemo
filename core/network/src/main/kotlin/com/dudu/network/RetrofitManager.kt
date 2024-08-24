@@ -2,6 +2,7 @@ package com.dudu.network
 
 import android.os.Debug
 import android.util.Log
+import com.dudu.common.ext.logD
 import com.dudu.network.adapter.FlowCallAdapterFactory
 import com.dudu.network.converter.ResultDataConverterFactory
 import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
@@ -14,6 +15,7 @@ import retrofit2.Retrofit
  * Created by Dzc on 2023/5/10.
  */
 object RetrofitManager {
+    private const val TAG = "OkHttp Log : "
 
     private var debug = BuildConfig.NETWORK_DEBUG // debug启动日志
     private var isDabugOkHttpProFile = BuildConfig.NETWORK_PROFILE // okhttp profile插件，需开启debug
@@ -57,7 +59,7 @@ object RetrofitManager {
 
         if(debug){
             builder = builder.addInterceptor(HttpLoggingInterceptor{
-                Log.d("OkHttp Log : ", it)
+                it.logD(TAG)
             }.setLevel(HttpLoggingInterceptor.Level.BODY))
 
             if(isDabugOkHttpProFile){

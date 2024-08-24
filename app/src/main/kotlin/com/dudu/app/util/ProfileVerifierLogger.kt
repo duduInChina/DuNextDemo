@@ -16,8 +16,8 @@
 
 package com.dudu.app.util
 
-import android.util.Log
 import androidx.profileinstaller.ProfileVerifier
+import com.dudu.common.ext.logD
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.guava.await
@@ -35,14 +35,11 @@ class ProfileVerifierLogger @Inject constructor() {
 
     operator fun invoke() = CoroutineScope(SupervisorJob()).launch {
         val status = ProfileVerifier.getCompilationStatusAsync().await()
-        Log.d(TAG, "Status code: ${status.profileInstallResultCode}")
-        Log.d(
-            TAG,
-            when {
-                status.isCompiledWithProfile -> "App compiled with profile"
-                status.hasProfileEnqueuedForCompilation() -> "Profile enqueued for compilation"
-                else -> "Profile not compiled nor enqueued"
-            },
-        )
+        "Status code: ${status.profileInstallResultCode}".logD(TAG)
+        when {
+            status.isCompiledWithProfile -> "App compiled with profile"
+            status.hasProfileEnqueuedForCompilation() -> "Profile enqueued for compilation"
+            else -> "Profile not compiled nor enqueued"
+        }.logD(TAG)
     }
 }

@@ -7,6 +7,8 @@ import androidx.viewbinding.ViewBinding
 import com.dudu.common.base.viewmodel.BaseViewModel
 import com.dudu.common.bean.FailedViewStatus
 import com.dudu.common.bean.Title
+import com.dudu.common.ext.log
+import com.dudu.common.ext.logD
 
 interface BaseView {
     val title: Title?
@@ -52,7 +54,7 @@ interface BaseView {
      * 点击异常布局回调
      */
     fun onFailedViewReload() {
-        Log.d("FailedView", "click failed view reload")
+        "click failed view reload".logD()
     }
 
     /**

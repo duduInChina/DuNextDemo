@@ -6,6 +6,7 @@ import androidx.viewbinding.ViewBinding
 import com.dudu.common.base.fragment.BaseFragment
 import com.dudu.common.base.viewmodel.BaseViewModel
 import com.dudu.common.ext.launchAndRepeatWithViewLifecycle
+import com.dudu.common.ext.logD
 import com.dudu.viewmodeltest.databinding.ActivityViewmodelDataviewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,7 +20,7 @@ class ViewModelFragment: BaseFragment() {
     }
 
     override fun initView() {
-        Log.d("viewmodeltest", viewModel.toString())
+        viewModel.toString().logD(TAG)
         bodyBinding.test.setOnClickListener {
             viewModel.setData("test")
         }
@@ -29,7 +30,7 @@ class ViewModelFragment: BaseFragment() {
         launchAndRepeatWithViewLifecycle {
             viewModel.testString.observe(this@ViewModelFragment) {
                 bodyBinding.tvData.text = it
-                Log.d("viewmodeltest", "Fragment获取数据${it}")
+                "Fragment获取数据${it}".logD(TAG)
             }
         }
     }
