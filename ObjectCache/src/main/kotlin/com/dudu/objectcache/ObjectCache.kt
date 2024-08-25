@@ -1,44 +1,20 @@
 package com.dudu.objectcache
 
-import androidx.core.util.Pools.SynchronizedPool
+import androidx.core.util.Pools
 
-object ObjectCache {
+interface IObjectCache {
+    fun clear()
+}
 
-    // 对象池，使用数组维护，存储空对象 https://www.jianshu.com/p/6de50d608b19
-    private val objectPool = SynchronizedPool<StringData>(10)
-    var poolSize = 0
+class ObjectCache<K, T : IObjectCache>(val maxCacheSize: Int, maxPoolSize: Int = 10) {
 
-    // 对象池中获取写入对象
-    fun acquire(): StringData {
-        val acquire = objectPool.acquire()
-        acquire?.let {
-            poolSize--
-            println("复用对象：" + it.name)
-            return it
-        } ?: let {
-            println("创建对象")
-            return StringData()
-        }
-    }
+    private val objectPool = Pools.SynchronizedPool<T>(maxPoolSize)
+    private var poolSize = 0
 
-    // 加入对象池
-    fun addPool(data: StringData) {
-        data.clear()
-        val release = objectPool.release(data)
-        if (release) {
-            poolSize++
-            println("成功加入对象池")
-        } else {
-            println("失败对象池已满")
-        }
-    }
-
-    // 缓存对象
-    private val objectCache = object : LinkedHashMap<String, StringData>(10, 0.75f, true) {
-        override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, StringData>?): Boolean {
-            if(size > 10){
+    private val objectCache = object : LinkedHashMap<K, T>(maxCacheSize, 0.75f, true) {
+        override fun removeEldestEntry(eldest: MutableMap.MutableEntry<K, T>?): Boolean {
+            if (size > 10) {
                 val entry = entries.first()
-                println("淘汰数据:" + eldest?.value?.name)
                 addPool(entry.value)
                 return true
             }
@@ -46,9 +22,26 @@ object ObjectCache {
         }
     }
 
-    fun getCache(key: String) = objectCache[key]
+    private fun addPool(data: T) {
+        data.clear()
+        val release = objectPool.release(data)
+        if (release) {
+            poolSize++
+        }
+    }
 
-    fun putCache(key: String, value: StringData) = objectCache.put(key, value)
+    fun acquire(): T? {
+        val acquire = objectPool.acquire()
+        acquire?.let {
+            poolSize--
+            return it
+        }
+        return null
+    }
+
+    fun putCache(key: K, value: T) = objectCache.put(key, value)
+
+    fun getCache(key: K) = objectCache[key]
 
     fun cacheSize() = objectCache.size
 

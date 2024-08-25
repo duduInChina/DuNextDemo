@@ -7,13 +7,6 @@
     "params": {}
   },
   {
-    "path": "",
-    "className": "com.dudu.weather.ui.weather.WeatherActivity",
-    "action": "",
-    "description": "",
-    "params": {}
-  },
-  {
     "path": "http://dudu.com/weather",
     "className": "com.dudu.weather.WeatherMainActivity",
     "action": "",
@@ -21,8 +14,15 @@
     "params": {}
   },
   {
-    "path": "",
-    "className": "com.dudu.weather.WeatherMainActivity",
+    "path": "http://dudu.com/object/cache",
+    "className": "com.dudu.objectcache.ObjectCacheActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://dudu.com/log",
+    "className": "com.dudu.log.LogActivity",
     "action": "",
     "description": "",
     "params": {}

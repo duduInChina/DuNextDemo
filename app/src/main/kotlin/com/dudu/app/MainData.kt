@@ -18,9 +18,12 @@ val mainDataList by lazy {
             • SplashScreen启动画面：优化启动白屏问题
             • BaseView：顶层赋值完成Title、ViewBinding、ViewModel初始化
             • RootLayout：Activity和Fragment加入根布局，装载标题、加载UI、空布局UI
+            • Room: 独立化database模块，DI注入Dao
             • PermissionX：权限判断，在当前Activity加入空布局的Fragment完成判断流程
             • build-logic：注册插件模块，ProjectConfig配置项目，libs管理包版本
             • Mockk：单元测试mock测试替身
+            • BaselineProfile：生成基准配置文件、启动配置文件模块（需版本：Android Studio Iguana），热点代码加入AOT提升启动速度
+            • Github Actions：完成CI/CD处理，提交分支代码，触发所有单元测试，lint报告，打包apk，提交蒲公英
         """.trimIndent()
         ),
 
@@ -36,7 +39,6 @@ val mainDataList by lazy {
                     Converter：增加kotlinx.serialization解析JSON，同时判断业务ErrorCode
         """.trimIndent(),
             routerPath = RouterPath.WEATHER
-//            intent = Intent
         ),
 
         MainData("日志","""
@@ -50,9 +52,10 @@ val mainDataList by lazy {
 
         MainData(
             "对象缓存", """
-            防止缓存无限增长，对象重复再利用
-            在对象池获取操作对象
-            缓存对象优先淘汰不经常使用对象
+            • 防止缓存无限增长，对象重复再利用
+            • 在对象池获取操作对象
+            • 缓存对象优先淘汰不经常使用对象
+            • 高频数据添加，低频获取数据测试
             """.trimIndent(),
             routerPath = RouterPath.OBJECT_CACHE
         )

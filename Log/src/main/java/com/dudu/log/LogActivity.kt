@@ -3,6 +3,8 @@ package com.dudu.log
 import android.text.TextUtils
 import androidx.viewbinding.ViewBinding
 import com.dudu.common.base.activity.BaseActivity
+import com.dudu.common.bean.Title
+import com.dudu.common.bean.TitleType
 import com.dudu.common.ext.logD
 import com.dudu.common.ext.logE
 import com.dudu.common.ext.logI
@@ -21,6 +23,8 @@ import com.therouter.router.Route
  */
 @Route(path = RouterPath.LOG)
 class LogActivity : BaseActivity() {
+
+    override val title = Title(titleType = TitleType.COLL, text = "日志")
 
     private val trackerInfo = """
             参考Tracker无埋点记录处理
@@ -79,9 +83,9 @@ class LogActivity : BaseActivity() {
 
     private fun getTag(): String? {
         val tag = bodyBinding.editTag.text.toString()
-        if(!TextUtils.isEmpty(tag)){
+        if (!TextUtils.isEmpty(tag)) {
             return tag
-        }else {
+        } else {
             return null
         }
     }

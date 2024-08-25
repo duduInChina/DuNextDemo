@@ -42,4 +42,6 @@ dependencies {
     baselineProfile(projects.baselineprofile)
     implementation(libs.kotlinx.coroutines.guava)
     implementation(projects.usbSerial)
+    implementation(projects.log)
+    implementation(projects.objectCache)
 }

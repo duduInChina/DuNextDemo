@@ -56,4 +56,75 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:id="@+id/textLoop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="添加数据："
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add" />
+
+    <TextView
+        android:id="@+id/sizeLoop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/textLoop"
+        app:layout_constraintTop_toBottomOf="@+id/add" />
+
+    <TextView
+        android:id="@+id/textLoopRead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="读取最新一条数据："
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLoop" />
+
+    <TextView
+        android:id="@+id/sizeLoopRead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/textLoopRead"
+        app:layout_constraintTop_toBottomOf="@+id/textLoop" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/addLoop"
+        style="@style/MyItemCardViewFocused"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLoopRead">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="循环添加（高频）"
+            android:textColor="#6B865B"
+            android:textSize="@dimen/text_medium" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/readLoop"
+        style="@style/MyItemCardViewFocused"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:layout_constraintLeft_toRightOf="@+id/addLoop"
+        app:layout_constraintTop_toBottomOf="@+id/textLoopRead"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="循环读取最新数据（每秒）"
+            android:textColor="#6B865B"
+            android:textSize="@dimen/text_medium" />
+
+    </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
