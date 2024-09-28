@@ -1,15 +1,11 @@
-package cn.fooltech.usbserial
+package com.dudu.usbserial
 
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
 import android.text.SpannableStringBuilder
-import android.util.Log
-import androidx.core.content.ContextCompat
 import com.dudu.usbserial.driver.UsbSerialPort
 import com.dudu.usbserial.driver.UsbSerialProber
 import com.dudu.usbserial.util.HexDump
