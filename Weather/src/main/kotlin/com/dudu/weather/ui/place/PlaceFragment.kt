@@ -4,6 +4,7 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.drake.brv.utils.models
 import com.dudu.common.R
 import com.dudu.common.base.fragment.BaseFragment
 import com.dudu.common.bean.FailedViewStatus
@@ -15,6 +16,8 @@ import com.dudu.weather.databinding.FragmentPlaceBinding
 import com.dudu.weather.ui.weather.WeatherActivity
 import com.therouter.TheRouter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 /**
@@ -50,7 +53,11 @@ class PlaceFragment : BaseFragment() {
                 if (content.isNotEmpty()) {
                     viewModel.sendAction(PlaceAction.SearchPlace(content))
                 } else {
-                    viewModel.sendState(PlaceState.INIT)
+                    viewModel.updateState {
+                        copy(
+                            placeList = listOf()
+                        )
+                    }
                 }
             }
         }
@@ -77,33 +84,30 @@ class PlaceFragment : BaseFragment() {
 
     override fun initFlow() {
         launchAndRepeatWithViewLifecycle {
-            viewModel.state.collect { state ->
-                when (state) {
-                    is PlaceState.INIT -> {
-                        bodyBinding.run {
-                            recyclerView.visibility = View.GONE
-                            bgImageView.visibility = View.VISIBLE
-                            adapter.removeAllData()
-
-                            if (viewModel.failedViewLiveData.value !is FailedViewStatus.HiddenView) {
-                                viewModel.setFailedViewStatus(FailedViewStatus.HiddenView)
-                            }
+            viewModel.loadingViewLiveData.observe(this@PlaceFragment) {
+                bodyBinding.searchPlaceLoading.visibility = View.VISIBLE
+            }
+        }
+        launchAndRepeatWithViewLifecycle {
+            viewModel.state.map {
+                it.placeList
+            }.distinctUntilChanged().collect {
+                if (it.isEmpty()) {
+                    bodyBinding.run {
+                        recyclerView.visibility = View.GONE
+                        bgImageView.visibility = View.VISIBLE
+                        bodyBinding.recyclerView.models = mutableListOf()
+                        searchPlaceLoading.visibility = View.GONE
+                        if (viewModel.failedViewLiveData.value !is FailedViewStatus.HiddenView) {
+                            viewModel.setFailedViewStatus(FailedViewStatus.HiddenView)
                         }
                     }
-                    is PlaceState.SearchLoad -> {
-                        bodyBinding.searchPlaceLoading.visibility = View.VISIBLE
-                    }
-                    is PlaceState.SearchSuccess -> {
-                        bodyBinding.run {
-                            searchPlaceLoading.visibility = View.GONE
-                            recyclerView.visibility = View.VISIBLE
-                            bgImageView.visibility = View.GONE
-                            adapter.replaceData(state.placeList)
-                        }
-                    }
-
-                    PlaceState.SearchError -> {
-                        bodyBinding.searchPlaceLoading.visibility = View.GONE
+                } else {
+                    bodyBinding.run {
+                        searchPlaceLoading.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
+                        bgImageView.visibility = View.GONE
+                        bodyBinding.recyclerView.models = it
                     }
                 }
             }
@@ -137,7 +141,11 @@ class PlaceFragment : BaseFragment() {
             if (content.isNotEmpty()) {
                 viewModel.sendAction(PlaceAction.SearchPlace(content, 2000))
             } else {
-                viewModel.sendState(PlaceState.INIT)
+                viewModel.updateState {
+                    copy(
+                        placeList = listOf()
+                    )
+                }
             }
         }
     }

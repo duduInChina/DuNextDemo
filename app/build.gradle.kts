@@ -44,4 +44,5 @@ dependencies {
     implementation(projects.usbSerial)
     implementation(projects.log)
     implementation(projects.objectCache)
+    implementation(projects.core.download)
 }

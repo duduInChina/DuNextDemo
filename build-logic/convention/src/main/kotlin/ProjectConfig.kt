@@ -45,6 +45,9 @@ object ProjectConfig{
     // 实际保存目录
     const val xLogDirName = "xlog"
 
+    // 下载文件保存目录
+    const val downloadDirName = "download"
+
     // 数据库名称
     const val databaseName = "pe-database"
 

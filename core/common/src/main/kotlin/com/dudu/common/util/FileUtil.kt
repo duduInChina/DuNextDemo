@@ -295,4 +295,15 @@ object FileUtil {
         }
     }
 
+    /**
+     * 检查没有父级路径创建
+     */
+    fun parentFileMake(path: String): File{
+        val file = File(path)
+        file.parentFile?.let {
+            if (!it.exists()) it.mkdirs()
+        }
+        return file
+    }
+
 }

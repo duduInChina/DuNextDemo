@@ -8,10 +8,11 @@
 - Hilt：自动依赖注入
 - AppStartup：使用ContentProvider优化启动初始化流程，减轻Application负担
 - SplashScreen启动画面：优化启动白屏问题
-- BaseView：顶层赋值完成Title、ViewBinding、ViewModel初始化
+- BaseView：顶层赋值完成Title、ViewBinding、ViewModel初始化、可配置底层ContentView
 - RootLayout：Activity和Fragment加入根布局，装载标题、加载UI、空布局UI
 - PermissionX：权限判断，在当前Activity加入空布局的Fragment完成判断流程
 - Room: 独立化database模块，DI注入Dao
+- SellUtil：执行命令工具
 - build-logic：注册插件模块，ProjectConfig配置项目，libs管理包版本
 - Mockk：单元测试mock测试替身
 - Macrobenchmark：基准化分析模块
@@ -53,3 +54,7 @@
 
 - 参照usb-serial-for-android，二次封装
 - 加入UsbSerialManager，粘包处理
+
+### 下载Apk
+
+- 实现Apk下载模块

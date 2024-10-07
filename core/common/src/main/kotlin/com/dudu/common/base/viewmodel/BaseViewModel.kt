@@ -55,7 +55,7 @@ open class BaseViewModel : ViewModel(), IBaseViewModel {
             loadingViewLiveData.observe(owner) {
                 when (it) {
                     LoadingViewStatus.LoadingView -> loadingView()
-                    LoadingViewStatus.LoadingDialog -> loadingHide()
+                    LoadingViewStatus.LoadingDialog -> loadingDialog()
                     LoadingViewStatus.LoadingHide -> loadingHide()
                 }
             }

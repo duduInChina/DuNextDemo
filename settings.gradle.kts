@@ -1,15 +1,5 @@
 import org.gradle.api.initialization.resolve.RepositoriesMode
 
-include(":UsbSerial")
-
-
-include(":database")
-
-
-include(":baselineprofile")
-
-include(":benchmark")
-
 pluginManagement {
     // 版本管理
     includeBuild("build-logic")
@@ -44,19 +34,21 @@ dependencyResolutionManagement {
 rootProject.name = "DuNextDemo"
 // 可以开启projects引用，https://docs.gradle.org/7.0/release-notes.html
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":module-run")
+include(":baselineprofile")
+include(":benchmark")
 include(":app")
 include(":testing")
 include(":core:common")
+include(":core:download")
 include(":core:network")
 include(":data:datastore-proto")
 include(":data:datastore")
 include(":data:weather-data")
-
-include(":module-run")
+include(":database")
 
 include(":Weather")
 include(":ObjectCache")
 include(":ViewModelTest")
 include(":Log")
-
-
+include(":UsbSerial")

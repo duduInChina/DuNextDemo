@@ -20,8 +20,12 @@ inline fun ComponentActivity.registerResult(
     }
 }
 
+/**
+ * Lifecycle.State.CREATED 重新进入界面不触发
+ * Lifecycle.State.STARTED 重新进入界面时会触发
+ */
 inline fun ComponentActivity.launchAndRepeatWithViewLifecycle(
-    minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
+    minActiveState: Lifecycle.State = Lifecycle.State.CREATED,
     crossinline block: suspend CoroutineScope.() -> Unit
 ){
     lifecycleScope.launch {

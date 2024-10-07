@@ -9,6 +9,7 @@ import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 
 /**
  * Retrofit创建Api实体管理类
@@ -34,14 +35,14 @@ object RetrofitManager {
      * 2、通过ksp自动生成静态的解析代码，优化解析
      */
     @Suppress("UNCHECKED_CAST")
-    fun <T> createService(clazz: Class<T>, baseUrl: String): T {
+    fun <T> createService(clazz: Class<T>, baseUrl: String, timeout: Long? = null): T {
         val className = clazz.name
         return if (serviceMap.containsKey(className)) {
             serviceMap[className] as T
         } else {
             val retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .client(getClient())
+                .client(getClient(timeout))
                 .addConverterFactory(ResultDataConverterFactory.create())
                 .addCallAdapterFactory(FlowCallAdapterFactory.create())
                 .build()
@@ -53,9 +54,15 @@ object RetrofitManager {
 
     }
 
-    private fun getClient(): OkHttpClient {
+    private fun getClient(timeout: Long? = null): OkHttpClient {
         var builder = OkHttpClient
             .Builder()
+
+        timeout?.let {
+            builder.connectTimeout(timeout, TimeUnit.SECONDS)
+                .readTimeout(timeout, TimeUnit.SECONDS)
+                .writeTimeout(timeout, TimeUnit.SECONDS)
+        }
 
         if(debug){
             builder = builder.addInterceptor(HttpLoggingInterceptor{
@@ -69,6 +76,10 @@ object RetrofitManager {
         }
 
         return builder.build()
+    }
+
+    fun clearCache() {
+        serviceMap.clear()
     }
 
 }

@@ -8,19 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.dudu.common.base.view.BaseView
 import com.dudu.common.base.view.ContentViewController
+import com.dudu.common.base.view.IContentView
 import com.dudu.common.base.view.LoadingViewController
 import com.dudu.common.bean.FailedViewStatus
 
 abstract class BaseFragment : Fragment(), BaseView {
 
-    private lateinit var contentViewController: ContentViewController
+    private lateinit var contentViewController: IContentView
 
     private val loadingViewController by lazy {
         LoadingViewController(requireActivity(), rootBinding)
     }
 
     val rootBinding
-        get() = contentViewController.rootBinding
+        get() = contentViewController.getContentRootBinding()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +60,7 @@ abstract class BaseFragment : Fragment(), BaseView {
     override fun showFailedView(failedViewStatus: FailedViewStatus) =
         contentViewController.showFailedView(failedViewStatus)
 
-    override fun getFailedViewBinding(): ViewBinding? = contentViewController.failedViewBinding
+    override fun getFailedViewBinding(): ViewBinding? = contentViewController.getContentFailedViewBinding()
 
     override fun showStatusBarSub(backgroundColor: Int) =
         contentViewController.showStatusBarSub(backgroundColor)

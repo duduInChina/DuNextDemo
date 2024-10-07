@@ -7,8 +7,12 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+/**
+ * Lifecycle.State.CREATED 重新进入界面不触发
+ * Lifecycle.State.STARTED 重新进入界面时会触发
+ */
 inline fun Fragment.launchAndRepeatWithViewLifecycle(
-    minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
+    minActiveState: Lifecycle.State = Lifecycle.State.CREATED,
     crossinline block: suspend CoroutineScope.() -> Unit
 ){
     viewLifecycleOwner.lifecycleScope.launch {

@@ -24,7 +24,7 @@ class ContentViewController(
     private val container: ViewGroup? = null,
     private val title: Title? = null,
     private val bodyBinding: ViewBinding? = null
-) {
+): IContentView {
 
     // 建立根布局，方便加载标题，加载view，错误view
     private var _rootBinding: ViewRootBinding? = null
@@ -35,6 +35,8 @@ class ContentViewController(
             } ?: ViewRootBinding.inflate(layoutInflater)
             _rootBinding!!
         }
+
+    override fun getContentRootBinding(): ViewRootBinding = rootBinding
 
     // CoordinatorLayout标题布局
     private var _collapsingTitleBinding: ViewCollapsingTitleBinding? = null
@@ -55,6 +57,8 @@ class ContentViewController(
             } ?: ViewFailedBinding.inflate(layoutInflater)
             _failedViewBinding!!
         }
+
+    override fun getContentFailedViewBinding(): ViewBinding = failedViewBinding
 
     init {
         title?.let {
@@ -118,7 +122,9 @@ class ContentViewController(
         )
     }
 
-    fun showFailedView(failedViewStatus: FailedViewStatus) = when(failedViewStatus) {
+
+
+    override fun showFailedView(failedViewStatus: FailedViewStatus) = when(failedViewStatus) {
         is FailedViewStatus.HiddenView -> removeFailedView()
         else -> {
             failedViewBinding.icon.setImageResource(failedViewStatus.resId)
@@ -138,6 +144,8 @@ class ContentViewController(
         }
     }
 
+
+
     private fun removeFailedView() {
         val targetView = baseView.onFailedViewTarget()?:rootBinding.layoutBody
         failedViewBinding.root.let { view ->
@@ -147,7 +155,7 @@ class ContentViewController(
         }
     }
 
-    fun showStatusBarSub(@ColorRes backgroundColor: Int) {
+    override fun showStatusBarSub(@ColorRes backgroundColor: Int) {
         rootBinding.run {
             statusBarStub.setOnInflateListener { _, view ->
                 getApplicationContext()?.let {
@@ -163,7 +171,7 @@ class ContentViewController(
     /**
      * 官方文档： Fragment 的存在时间比其视图长。请务必在 Fragment 的 onDestroyView() 方法中清除对绑定类实例的所有引用。
      */
-    fun clean() {
+    override fun clean() {
         _rootBinding = null
         _collapsingTitleBinding = null
         _failedViewBinding = null

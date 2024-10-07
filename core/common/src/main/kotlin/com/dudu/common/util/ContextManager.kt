@@ -24,3 +24,5 @@ fun showToast(text: CharSequence){
  * 应用：Log输出判断
  */
 fun getCommonDebug(): Boolean = BuildConfig.DEBUG
+
+fun getPackageName() = applicationContext?.packageName ?: ""

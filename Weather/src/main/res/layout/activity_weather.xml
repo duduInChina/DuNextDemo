@@ -53,7 +53,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/placeFragment"
-            android:name="com.dudu.weather.ui.place.PlaceFragment"
+            android:name="com.dudu.weather.ui.place.PlaceBrvFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
